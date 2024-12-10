@@ -1,2 +1,9 @@
-# superheroes
+# Superheroes
 A test flutter app with a list of superheroes
+
+### API sources
+Superhero list API: [link](https://akabab.github.io/superhero-api/api/all.json)
+
+### Image sources
+Splash lottie animation: [link](https://lottiefiles.com/free-animation/cat-hero-clGf66MdaS)
+Error page image: [link](https://media.istockphoto.com/id/1366541950/vector/a-dejected-cat.jpg?s=612x612&w=0&k=20&c=IYF43fLoTlJWnIlBM5vDjhTZZmQ31h_a_R7GH0YIWn0=)
