@@ -9,8 +9,6 @@ class SharedPreferencesService {
 
   final SharedPreferences _preferences;
 
-  //final SharedPreferences prefs = await SharedPreferences.getInstance();
-
   bool isFirstTimeOpenApp() =>
       _preferences.getBool(_Keys.firstTimeOpenApp) ?? true;
 
