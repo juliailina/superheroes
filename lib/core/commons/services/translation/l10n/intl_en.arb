@@ -1,0 +1,10 @@
+{
+    "appTitle": "Superheroes",
+    "welcomeMessage": "Welcome to Superheroes app!",
+    "homeLabel": "Home",
+    "superheroesLabel": "Superheroes",
+    "playgroundLabel": "Playground",
+    "errorWidgetTitle": "Something went wrong.",
+    "errorWidgetDescription": "Please check your internet connection and try again.",
+    "homePageTitle": "Superhero of the day"
+}
