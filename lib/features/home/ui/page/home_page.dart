@@ -1,10 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:superheroes/core/commons/services/export_services.dart';
-import 'package:superheroes/core/commons/services/shared_preferences_service.dart';
 import 'package:superheroes/core/commons/ui/styles/export_styles.dart';
-import 'package:superheroes/features/generator/export_generator.dart';
 import 'package:superheroes/features/superheroes/export_superheroes.dart';
 
 class HomePage extends StatefulWidget {

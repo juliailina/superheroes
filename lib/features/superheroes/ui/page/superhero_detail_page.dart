@@ -43,7 +43,13 @@ class SuperheroDetailPage extends StatelessWidget {
               _buildBasicInfo(name, race, gender),
               const SizedBox(height: Spaces.spaceM),
               _buildStats(
-                  intelligence, strength, speed, durability, power, combat),
+                intelligence,
+                strength,
+                speed,
+                durability,
+                power,
+                combat,
+              ),
               const SizedBox(height: Spaces.spaceM),
               // TODO: update ui, add biography
               //_buildBiography(superhero.biography),
@@ -91,8 +97,14 @@ class SuperheroDetailPage extends StatelessWidget {
     );
   }
 
-  Widget _buildStats(int intelligence, int strength, int speed, int durability,
-      int power, int combat) {
+  Widget _buildStats(
+    int intelligence,
+    int strength,
+    int speed,
+    int durability,
+    int power,
+    int combat,
+  ) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

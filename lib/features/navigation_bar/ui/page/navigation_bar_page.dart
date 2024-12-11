@@ -4,9 +4,9 @@ import 'package:material_symbols_icons/symbols.dart';
 import 'package:superheroes/core/commons/services/export_services.dart';
 import 'package:superheroes/core/commons/ui/styles/export_styles.dart';
 import 'package:superheroes/core/commons/ui/widgets/export_widgets.dart';
+import 'package:superheroes/features/generator/export_generator.dart';
 import 'package:superheroes/features/home/export_home.dart';
 import 'package:superheroes/features/navigation_bar/export_navigation_bar.dart';
-import 'package:superheroes/features/generator/export_generator.dart';
 import 'package:superheroes/features/superheroes/export_superheroes.dart';
 
 class _Constants {

@@ -19,6 +19,7 @@ dependencies:
   font_awesome_flutter: ^10.8.0
   material_symbols_icons: ^4.2789.0
   lottie: ^3.2.0
+  flutter_emoji: ^2.5.1
   # URLs
   http: ^1.2.2
   url_launcher: ^6.3.1
@@ -31,8 +32,10 @@ dependencies:
     sdk: flutter
   intl: any
   intl_utils: ^2.8.7
-  flutter_emoji: ^2.5.1
+  # Env keys
   flutter_dotenv: ^5.2.1
+
+  vector_graphics: any
 
 dev_dependencies:
   flutter_test:

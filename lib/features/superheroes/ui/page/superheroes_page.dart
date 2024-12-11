@@ -91,7 +91,9 @@ class _SuperheroesPageState extends State<SuperheroesPage> {
   }
 
   List<Superhero> _filterSuperheroes(
-      List<Superhero> superheroes, String keyword) {
+    List<Superhero> superheroes,
+    String keyword,
+  ) {
     if (keyword.isEmpty) {
       return superheroes;
     } else {
