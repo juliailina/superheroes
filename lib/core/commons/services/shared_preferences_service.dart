@@ -1,7 +1,8 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 class _Keys {
-  static String firstTimeOpenApp = 'firstTimeOpenApp';
+  static String superheroOfTheDayDate = 'superheroOfTheDayDate';
+  static String superheroOfTheDayId = 'superheroOfTheDayId';
 }
 
 class SharedPreferencesService {
@@ -9,9 +10,27 @@ class SharedPreferencesService {
 
   final SharedPreferences _preferences;
 
-  bool isFirstTimeOpenApp() =>
-      _preferences.getBool(_Keys.firstTimeOpenApp) ?? true;
+  Future<void> setSuperheroOfTheDay(String superheroId, String date) async {
+    await _preferences.setString(_Keys.superheroOfTheDayId, superheroId);
+    await _preferences.setString(_Keys.superheroOfTheDayDate, date);
+  }
 
-  void setIsFirstTimeOpenApp(bool isFirstTime) =>
-      _preferences.setBool(_Keys.firstTimeOpenApp, isFirstTime);
+  String? getSuperheroOfTheDayId() =>
+      _preferences.getString(_Keys.superheroOfTheDayId);
+
+  String? getSuperheroOfTheDayDate() =>
+      _preferences.getString(_Keys.superheroOfTheDayDate);
+
+  bool shouldUpdateSuperheroOfTheDay() {
+    final storedDate = _preferences.getString(_Keys.superheroOfTheDayDate);
+    if (storedDate == null) {
+      return true;
+    }
+
+    final currentDate = DateTime.now();
+    final storedDateTime = DateTime.parse(storedDate);
+    final difference = currentDate.difference(storedDateTime).inHours;
+
+    return difference >= 24;
+  }
 }

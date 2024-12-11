@@ -6,7 +6,7 @@ import 'package:superheroes/core/commons/ui/styles/export_styles.dart';
 import 'package:superheroes/core/commons/ui/widgets/export_widgets.dart';
 import 'package:superheroes/features/home/export_home.dart';
 import 'package:superheroes/features/navigation_bar/export_navigation_bar.dart';
-import 'package:superheroes/features/playground/export_playground.dart';
+import 'package:superheroes/features/generator/export_generator.dart';
 import 'package:superheroes/features/superheroes/export_superheroes.dart';
 
 class _Constants {
@@ -64,7 +64,7 @@ class _NavigationBarPageState extends State<NavigationBarPage> {
           icon: Symbols.view_list_rounded,
         ),
         _getNavigationDestination(
-          label: S.of(context).playgroundLabel,
+          label: S.of(context).generatorLabel,
           icon: Symbols.smart_toy_rounded,
         ),
       ];
@@ -104,7 +104,7 @@ class _NavigationBarPageState extends State<NavigationBarPage> {
             children: const [
               HomePage(),
               SuperheroesPage(),
-              PlaygroundPage(),
+              GeneratorPage(),
             ],
           ),
         );

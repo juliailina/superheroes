@@ -3,8 +3,10 @@
     "welcomeMessage": "Welcome to Superheroes app!",
     "homeLabel": "Home",
     "superheroesLabel": "Superheroes",
-    "playgroundLabel": "Playground",
+    "generatorLabel": "Generator",
     "errorWidgetTitle": "Something went wrong.",
     "errorWidgetDescription": "Please check your internet connection and try again.",
-    "homePageTitle": "Superhero of the day"
+    "homePageTitle": "Superhero of the day",
+    "searchLabel": "Search",
+    "searchNoResults": "No results"
 }

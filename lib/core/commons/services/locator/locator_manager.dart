@@ -1,13 +1,15 @@
 import 'package:get_it/get_it.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:superheroes/core/commons/services/navigation/export_navigation.dart';
+import 'package:superheroes/core/commons/services/shared_preferences_service.dart';
+import 'package:superheroes/features/generator/export_generator.dart';
 import 'package:superheroes/features/navigation_bar/export_navigation_bar.dart';
-import 'package:superheroes/features/playground/export_playground.dart';
 import 'package:superheroes/features/superheroes/export_superheroes.dart';
 
 GetIt locator = GetIt.instance;
 
 Future<void> setupLocator() async {
-  _registerServices();
+  await _registerServices();
   _registerDataSources();
   _registerBlocs();
 
@@ -16,10 +18,15 @@ Future<void> setupLocator() async {
 
 // // ============================== SERVICES ==============================
 
-void _registerServices() {
-  locator.registerLazySingleton(
-    NavigationService.new,
-  );
+Future<void> _registerServices() async {
+  final sharedPreferences = await SharedPreferences.getInstance();
+  locator
+    ..registerLazySingleton<SharedPreferencesService>(
+      () => SharedPreferencesService(sharedPreferences),
+    )
+    ..registerLazySingleton(
+      NavigationService.new,
+    );
 }
 
 // // ============================== DATA SOURCES ==============================
@@ -29,8 +36,8 @@ void _registerDataSources() {
     ..registerFactory<SuperheroDatasource>(
       SuperheroDatasourceImpl.new,
     )
-    ..registerFactory<PlaygroundDatasource>(
-      PlaygroundDatasourceImpl.new,
+    ..registerFactory<GeneratorDatasource>(
+      GeneratorDatasourceImpl.new,
     );
 }
 
@@ -46,9 +53,9 @@ void _registerBlocs() {
         locator<SuperheroDatasource>(),
       ),
     )
-    ..registerLazySingleton<PlaygroundBloc>(
-      () => PlaygroundBloc(
-        locator<PlaygroundDatasource>(),
+    ..registerLazySingleton<GeneratorBloc>(
+      () => GeneratorBloc(
+        locator<GeneratorDatasource>(),
       ),
     );
 }

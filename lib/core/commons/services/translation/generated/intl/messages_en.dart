@@ -27,10 +27,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "Please check your internet connection and try again."),
         "errorWidgetTitle":
             MessageLookupByLibrary.simpleMessage("Something went wrong."),
+        "generatorLabel": MessageLookupByLibrary.simpleMessage("Generator"),
         "homeLabel": MessageLookupByLibrary.simpleMessage("Home"),
         "homePageTitle":
             MessageLookupByLibrary.simpleMessage("Superhero of the day"),
-        "playgroundLabel": MessageLookupByLibrary.simpleMessage("Playground"),
+        "searchLabel": MessageLookupByLibrary.simpleMessage("Search"),
+        "searchNoResults": MessageLookupByLibrary.simpleMessage("No results"),
         "superheroesLabel": MessageLookupByLibrary.simpleMessage("Superheroes"),
         "welcomeMessage":
             MessageLookupByLibrary.simpleMessage("Welcome to Superheroes app!")

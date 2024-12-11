@@ -90,11 +90,11 @@ class S {
     );
   }
 
-  /// `Playground`
-  String get playgroundLabel {
+  /// `Generator`
+  String get generatorLabel {
     return Intl.message(
-      'Playground',
-      name: 'playgroundLabel',
+      'Generator',
+      name: 'generatorLabel',
       desc: '',
       args: [],
     );
@@ -125,6 +125,26 @@ class S {
     return Intl.message(
       'Superhero of the day',
       name: 'homePageTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search`
+  String get searchLabel {
+    return Intl.message(
+      'Search',
+      name: 'searchLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No results`
+  String get searchNoResults {
+    return Intl.message(
+      'No results',
+      name: 'searchNoResults',
       desc: '',
       args: [],
     );

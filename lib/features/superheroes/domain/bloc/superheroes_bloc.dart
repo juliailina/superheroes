@@ -9,10 +9,11 @@ class SuperheroesBloc {
 
   final ValueNotifier<ScreenState> _screenState =
       ValueNotifier(ScreenState.idle);
-  List<Superhero> _superheroes = [];
+  final ValueNotifier<List<Superhero>> _superheroes = ValueNotifier([]);
 
+  List<Superhero> get superheroes => _superheroes.value;
+  ValueNotifier<List<Superhero>> get superheroesNotifier => _superheroes;
   ValueNotifier<ScreenState> get screenState => _screenState;
-  List<Superhero> get superheroes => _superheroes;
 
   Future<void> init() async {
     await _getSuperheroes();
@@ -20,20 +21,17 @@ class SuperheroesBloc {
 
   Future<void> _getSuperheroes() async {
     _screenState.value = ScreenState.loading;
-
     final result = await _superheroDatasource.getSuperheroes();
 
     result.whenWithResult(
       (success) {
-        _superheroes = success.value.superheroes;
+        _superheroes.value = success.value.superheroes;
+        _screenState.value = ScreenState.idle;
       },
       (error) {
-        debugPrint('Error getSuperheroes : ${error.error}');
-        _superheroes = [];
+        _superheroes.value = [];
+        _screenState.value = ScreenState.error;
       },
     );
-    _screenState.value = ScreenState.idle;
-
-    debugPrint('Superheroes: ${_superheroes.length}');
   }
 }

@@ -5,11 +5,9 @@ import 'package:superheroes/features/superheroes/export_superheroes.dart';
 class SuperheroRoutes {
   SuperheroRoutes._();
 
-  // Paths
   static const superheroes = '/superheroes';
   static const superheroDetail = '/superheroes/superhero_detail';
 
-  // Routes Builder
   static Widget _superheroesRouteBuilder(
     BuildContext context,
     GoRouterState state,
@@ -26,7 +24,6 @@ class SuperheroRoutes {
     );
   }
 
-  // Routes
   static List<GoRoute> routes = [
     GoRoute(
       path: superheroes,

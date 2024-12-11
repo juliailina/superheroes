@@ -32,6 +32,7 @@ dependencies:
   intl: any
   intl_utils: ^2.8.7
   flutter_emoji: ^2.5.1
+  flutter_dotenv: ^5.2.1
 
 dev_dependencies:
   flutter_test:
@@ -54,6 +55,7 @@ flutter:
   uses-material-design: true
 
   assets:
+    - .env
     - assets/
     - assets/images/
     - assets/lottie/

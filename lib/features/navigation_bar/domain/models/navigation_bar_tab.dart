@@ -4,15 +4,15 @@ import 'package:superheroes/core/commons/services/translation/export_translation
 enum NavigationBarTab {
   home,
   superheroes,
-  playground;
+  generator;
 
   bool get isHome => this == home;
   bool get isSuperheroes => this == superheroes;
-  bool get isPlayground => this == playground;
+  bool get isGenerator => this == generator;
 
   String appBarTitle(BuildContext context) => switch (this) {
         NavigationBarTab.home => S.of(context).homeLabel,
         NavigationBarTab.superheroes => S.of(context).superheroesLabel,
-        NavigationBarTab.playground => S.of(context).playgroundLabel,
+        NavigationBarTab.generator => S.of(context).generatorLabel,
       };
 }

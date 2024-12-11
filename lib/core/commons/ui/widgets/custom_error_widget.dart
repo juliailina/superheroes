@@ -8,29 +8,32 @@ class CustomErrorWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(Spaces.spaceS),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Assets.images.errorImage.image(
+    return Padding(
+      padding: const EdgeInsets.all(Spaces.spaceS),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: Spaces.spaceL,
+            ),
+            child: Assets.images.errorImage.image(
               fit: BoxFit.contain,
             ),
-            Spaces.verticalM(),
-            Text(
-              S.of(context).errorWidgetTitle,
-              style: CustomTextStyle.paragraphLbold,
-              textAlign: TextAlign.center,
-            ),
-            Spaces.verticalXS(),
-            Text(
-              S.of(context).errorWidgetDescription,
-              style: CustomTextStyle.paragraphMdefault,
-              textAlign: TextAlign.center,
-            ),
-          ],
-        ),
+          ),
+          Spaces.verticalM(),
+          Text(
+            S.of(context).errorWidgetTitle,
+            style: CustomTextStyle.paragraphLbold,
+            textAlign: TextAlign.center,
+          ),
+          Spaces.verticalXS(),
+          Text(
+            S.of(context).errorWidgetDescription,
+            style: CustomTextStyle.paragraphMdefault,
+            textAlign: TextAlign.center,
+          ),
+        ],
       ),
     );
   }
