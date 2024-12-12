@@ -26,7 +26,9 @@ class _SuperheroesPageState extends State<SuperheroesPage> {
   void initState() {
     super.initState();
     _superheroesBloc = locator<SuperheroesBloc>();
-    _superheroesBloc.init();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _superheroesBloc.init();
+    });
   }
 
   @override
