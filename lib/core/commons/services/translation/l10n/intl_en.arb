@@ -1,12 +1,20 @@
 {
     "appTitle": "Superheroes",
+    "superhero": "Superhero",
     "welcomeMessage": "Welcome to Superheroes app!",
     "homeLabel": "Home",
     "superheroesLabel": "Superheroes",
     "generatorLabel": "Generator",
     "errorWidgetTitle": "Something went wrong.",
     "errorWidgetDescription": "Please check your internet connection and try again.",
-    "homePageTitle": "Superhero of the day",
-    "searchLabel": "Search",
-    "searchNoResults": "No results"
+    "homePageTitle": "Superhero of the day:",
+    "searchLabel": "Search by name or race",
+    "searchNoResults": "No results",
+    "generateButton": "Generate Superhero",
+    "tryAgainButton": "Try again",
+    "nameLabel": "Name: ",
+    "genderLabel": "Gender: ",
+    "raceLabel": "Race: ",
+    "heightLabel": "Height: ",
+    "weightLabel": "Weight: "
 }

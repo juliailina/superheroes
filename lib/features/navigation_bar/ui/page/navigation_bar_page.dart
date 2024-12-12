@@ -3,7 +3,6 @@ import 'package:go_router/go_router.dart';
 import 'package:material_symbols_icons/symbols.dart';
 import 'package:superheroes/core/commons/services/export_services.dart';
 import 'package:superheroes/core/commons/ui/styles/export_styles.dart';
-import 'package:superheroes/core/commons/ui/widgets/export_widgets.dart';
 import 'package:superheroes/features/generator/export_generator.dart';
 import 'package:superheroes/features/home/export_home.dart';
 import 'package:superheroes/features/navigation_bar/export_navigation_bar.dart';
@@ -50,7 +49,6 @@ class _NavigationBarPageState extends State<NavigationBarPage> {
   }) =>
       Icon(
         icon,
-        color: CustomColors.black,
         fill: isFill ? _Constants.fillIcon : null,
       );
 
@@ -75,10 +73,11 @@ class _NavigationBarPageState extends State<NavigationBarPage> {
       valueListenable: _navigationBarBloc.selectedIndexNavigationBar,
       builder: (context, selectedNavBarTab, _) {
         return Scaffold(
-          backgroundColor: CustomColors.secondary,
-          appBar: CustomAppBar(
-            title: selectedNavBarTab.appBarTitle(context),
-            backgroundColor: CustomColors.primary,
+          appBar: AppBar(
+            centerTitle: true,
+            title: Text(
+              selectedNavBarTab.appBarTitle(context),
+            ),
           ),
           bottomNavigationBar: ClipRRect(
             borderRadius: const BorderRadius.only(
@@ -86,7 +85,6 @@ class _NavigationBarPageState extends State<NavigationBarPage> {
               topRight: _Constants.clipRadius,
             ),
             child: NavigationBar(
-              backgroundColor: CustomColors.primary,
               indicatorColor: CustomColors.transparent,
               selectedIndex: selectedNavBarTab.index,
               onDestinationSelected: (index) {

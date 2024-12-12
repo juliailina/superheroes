@@ -24,13 +24,11 @@ class CustomErrorWidget extends StatelessWidget {
           Spaces.verticalM(),
           Text(
             S.of(context).errorWidgetTitle,
-            style: CustomTextStyle.paragraphLbold,
             textAlign: TextAlign.center,
           ),
           Spaces.verticalXS(),
           Text(
             S.of(context).errorWidgetDescription,
-            style: CustomTextStyle.paragraphMdefault,
             textAlign: TextAlign.center,
           ),
         ],

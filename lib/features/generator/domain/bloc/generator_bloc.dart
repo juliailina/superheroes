@@ -8,17 +8,13 @@ class GeneratorBloc {
   GeneratorBloc(this._generatorDatasource);
 
   final ValueNotifier<ScreenState> _screenState =
-      ValueNotifier(ScreenState.idle);
+      ValueNotifier(ScreenState.empty);
   final ValueNotifier<GeneratorResponse?> _generatorResponse =
       ValueNotifier(null);
 
   ValueNotifier<ScreenState> get screenState => _screenState;
   ValueNotifier<GeneratorResponse?> get generatorResponseNotifier =>
       _generatorResponse;
-
-  Future<void> init() async {
-    await generateSuperhero();
-  }
 
   Future<void> generateSuperhero() async {
     debugPrint('Generating superhero...');

@@ -1,9 +1,21 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:superheroes/core/commons/ui/assets/assets.gen.dart';
+import 'package:superheroes/core/commons/services/translation/export_translation.dart';
 import 'package:superheroes/core/commons/ui/styles/export_styles.dart';
+import 'package:superheroes/core/commons/ui/widgets/export_widgets.dart';
 import 'package:superheroes/core/extension/export_extensions.dart';
 import 'package:superheroes/features/superheroes/domain/export_domain.dart';
+
+class _Constants {
+  static const Radius borderRadius = Radius.circular(25);
+  static const double aspectRatio = 1;
+  static const List<BoxShadow> cardShadows = [
+    BoxShadow(
+      color: CustomColors.foreground,
+      blurRadius: 5,
+      spreadRadius: 1,
+    ),
+  ];
+}
 
 class SuperheroDetailPage extends StatelessWidget {
   final Superhero superhero;
@@ -15,44 +27,24 @@ class SuperheroDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final name = superhero.name?.capitalize() ?? 'Unknown Hero';
-    final image = superhero.images?.lg ?? '';
-    final race = superhero.appearance?.race ?? 'Unknown Race';
-    final gender = superhero.appearance?.gender ?? 'Unknown Gender';
-    final intelligence = superhero.powerstats?.intelligence ?? 0;
-    final strength = superhero.powerstats?.strength ?? 0;
-    final speed = superhero.powerstats?.speed ?? 0;
-    final durability = superhero.powerstats?.durability ?? 0;
-    final power = superhero.powerstats?.power ?? 0;
-    final combat = superhero.powerstats?.combat ?? 0;
+    final name = superhero.name?.capitalize() ?? S.of(context).superhero;
 
     return Scaffold(
-      backgroundColor: CustomColors.secondary,
       appBar: AppBar(
+        centerTitle: true,
         title: Text(name),
-        backgroundColor: CustomColors.primary,
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(Spaces.spaceS),
+          padding: const EdgeInsets.all(Spaces.spaceM),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _buildImage(image),
-              const SizedBox(height: Spaces.spaceM),
-              _buildBasicInfo(name, race, gender),
-              const SizedBox(height: Spaces.spaceM),
-              _buildStats(
-                intelligence,
-                strength,
-                speed,
-                durability,
-                power,
-                combat,
-              ),
-              const SizedBox(height: Spaces.spaceM),
-              // TODO: update ui, add biography
-              //_buildBiography(superhero.biography),
+              _buildImage(),
+              Spaces.verticalM(),
+              _buildInfo(context, name),
+              Spaces.verticalM(),
+              _buildStats(),
             ],
           ),
         ),
@@ -60,98 +52,53 @@ class SuperheroDetailPage extends StatelessWidget {
     );
   }
 
-  Widget _buildImage(String imageUrl) {
-    return Center(
-      child: CachedNetworkImage(
-        imageUrl: imageUrl,
-        height: 250,
-        width: 250,
-        fit: BoxFit.cover,
-        placeholder: (context, url) =>
-            Assets.placeholder.svg(fit: BoxFit.cover),
-        errorWidget: (context, url, error) =>
-            Assets.placeholder.svg(fit: BoxFit.cover),
+  Widget _buildImage() {
+    final image = superhero.images?.lg;
+
+    return AspectRatio(
+      aspectRatio: _Constants.aspectRatio,
+      child: Card(
+        child: Container(
+          width: double.infinity,
+          decoration: const BoxDecoration(
+            color: CustomColors.background,
+            borderRadius: BorderRadius.all(
+              _Constants.borderRadius,
+            ),
+            boxShadow: _Constants.cardShadows,
+          ),
+          child: CustomSquareImage(image: image ?? ''),
+        ),
       ),
     );
   }
 
-  Widget _buildBasicInfo(String name, String race, String gender) {
+  Column _buildInfo(BuildContext context, String name) {
+    final race = superhero.appearance?.race;
+    final gender = superhero.appearance?.gender;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Name: $name',
-          style: CustomTextStyle.titleM,
-        ),
-        const SizedBox(height: Spaces.spaceXS),
-        Text(
-          'Race: $race',
-          style: CustomTextStyle.paragraphMdefault,
-        ),
-        const SizedBox(height: Spaces.spaceXS),
-        Text(
-          'Gender: $gender',
-          style: CustomTextStyle.paragraphMdefault,
-        ),
+        InfoLineWidget(param: name, label: S.of(context).nameLabel),
+        if (race != null)
+          InfoLineWidget(param: race, label: S.of(context).raceLabel),
+        if (gender != null)
+          InfoLineWidget(param: gender, label: S.of(context).genderLabel),
       ],
     );
   }
 
-  Widget _buildStats(
-    int intelligence,
-    int strength,
-    int speed,
-    int durability,
-    int power,
-    int combat,
-  ) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'Stats:',
-          style: CustomTextStyle.titleXS,
-        ),
-        const SizedBox(height: Spaces.spaceXS),
-        _buildStatRow('🧠 Intelligence', intelligence),
-        _buildStatRow('💪 Strength', strength),
-        _buildStatRow('🏃 Speed', speed),
-        _buildStatRow('✊ Durability', durability),
-        _buildStatRow('⚡ Power', power),
-        _buildStatRow('🥷 Combat', combat),
-      ],
-    );
-  }
+  Widget _buildStats() {
+    final stats = superhero.powerstats;
 
-  Widget _buildStatRow(String label, int value) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: Spaces.spaceXS),
-      child: Row(
-        children: [
-          Text(label, style: CustomTextStyle.paragraphMdefault),
-          const SizedBox(width: 8),
-          Text('$value', style: CustomTextStyle.paragraphMbold),
-        ],
-      ),
+    return StatsGridWidget(
+      intelligence: stats?.intelligence,
+      strength: stats?.strength,
+      speed: stats?.speed,
+      durability: stats?.durability,
+      power: stats?.power,
+      combat: stats?.combat,
     );
-  }
-
-  Widget _buildBiography(String? biography) {
-    return biography != null && biography.isNotEmpty
-        ? Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Biography:',
-                style: CustomTextStyle.titleXS,
-              ),
-              const SizedBox(height: Spaces.spaceXS),
-              Text(
-                biography,
-                style: CustomTextStyle.paragraphMdefault,
-              ),
-            ],
-          )
-        : const SizedBox.shrink();
   }
 }

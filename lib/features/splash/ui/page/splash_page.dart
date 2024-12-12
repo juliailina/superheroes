@@ -3,7 +3,6 @@ import 'package:flutter/scheduler.dart';
 import 'package:go_router/go_router.dart';
 import 'package:superheroes/core/commons/services/export_services.dart';
 import 'package:superheroes/core/commons/ui/assets/assets.gen.dart';
-import 'package:superheroes/core/commons/ui/styles/typography.dart';
 import 'package:superheroes/features/navigation_bar/export_navigation_bar.dart';
 import 'package:superheroes/features/superheroes/export_superheroes.dart';
 
@@ -45,12 +44,8 @@ class _SplashPageState extends State<SplashPage> {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Assets.lottie.superheroJson.lottie(
+            Assets.lottie.superhero.lottie(
               fit: BoxFit.contain,
-            ),
-            Text(
-              S.of(context).appTitle,
-              style: CustomTextStyle.displayXL,
             ),
           ],
         ),

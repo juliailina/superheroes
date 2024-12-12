@@ -9,24 +9,27 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  # Shared preferences
+  shared_preferences: ^2.3.3
   # Dependency Injection (DI)
   get_it: ^8.0.2
   # Navigation
   go_router: ^14.6.2
-  # Assets
+  # Assets / UI
   cached_network_image: ^3.4.1
   flutter_svg: ^2.0.12
-  font_awesome_flutter: ^10.8.0
   material_symbols_icons: ^4.2789.0
   lottie: ^3.2.0
   flutter_emoji: ^2.5.1
+  flutter_animate: ^4.5.2
+  vector_graphics: any
+  flutter_launcher_icons: ^0.14.2
+  google_fonts: ^6.2.1
   # URLs
   http: ^1.2.2
   url_launcher: ^6.3.1
   # Overlay
   loader_overlay: ^4.0.3
-  flutter_launcher_icons: ^0.14.2
-  shared_preferences: ^2.3.3
   # Translation
   flutter_localizations:
     sdk: flutter
@@ -34,8 +37,6 @@ dependencies:
   intl_utils: ^2.8.7
   # Env keys
   flutter_dotenv: ^5.2.1
-
-  vector_graphics: any
 
 dev_dependencies:
   flutter_test:
@@ -62,7 +63,6 @@ flutter:
     - assets/
     - assets/images/
     - assets/lottie/
-    - assets/fonts/
 
 flutter_intl:
   enabled: true

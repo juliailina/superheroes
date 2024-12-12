@@ -2,6 +2,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:superheroes/core/commons/services/export_services.dart';
 import 'package:superheroes/core/commons/ui/styles/export_styles.dart';
+import 'package:superheroes/core/commons/ui/widgets/custom_error_widget.dart';
 import 'package:superheroes/features/superheroes/export_superheroes.dart';
 
 class HomePage extends StatefulWidget {
@@ -57,22 +58,22 @@ class _HomePageState extends State<HomePage> {
       valueListenable: _superheroesBloc.screenState,
       builder: (context, screenState, child) {
         return Scaffold(
-          backgroundColor: CustomColors.secondary,
           body: SingleChildScrollView(
-            child: Center(
-              child: Padding(
-                padding: const EdgeInsets.all(Spaces.spaceS),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(S.of(context).homePageTitle),
-                    Spaces.verticalS(),
-                    if (superheroOfTheDay != null)
-                      SuperheroCard(
-                        superhero: superheroOfTheDay!,
-                      ),
-                  ],
-                ),
+            child: Padding(
+              padding: const EdgeInsets.all(Spaces.spaceXL),
+              child: Column(
+                children: [
+                  Text(
+                    S.of(context).homePageTitle,
+                    style: Theme.of(context).textTheme.headlineSmall,
+                  ),
+                  Spaces.verticalM(),
+                  superheroOfTheDay != null
+                      ? SuperheroCard(
+                          superhero: superheroOfTheDay!,
+                        )
+                      : const CustomErrorWidget(),
+                ],
               ),
             ),
           ),

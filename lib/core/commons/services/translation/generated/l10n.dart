@@ -1,4 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: always_use_package_imports
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'intl/messages_all.dart';
@@ -19,7 +21,7 @@ class S {
 
   static S get current {
     assert(_current != null,
-        'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.');
+        'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.',);
     return _current!;
   }
 
@@ -42,7 +44,7 @@ class S {
   static S of(BuildContext context) {
     final instance = S.maybeOf(context);
     assert(instance != null,
-        'No instance of S present in the widget tree. Did you add S.delegate in localizationsDelegates?');
+        'No instance of S present in the widget tree. Did you add S.delegate in localizationsDelegates?',);
     return instance!;
   }
 
@@ -55,6 +57,16 @@ class S {
     return Intl.message(
       'Superheroes',
       name: 'appTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Superhero`
+  String get superhero {
+    return Intl.message(
+      'Superhero',
+      name: 'superhero',
       desc: '',
       args: [],
     );
@@ -120,20 +132,20 @@ class S {
     );
   }
 
-  /// `Superhero of the day`
+  /// `Superhero of the day:`
   String get homePageTitle {
     return Intl.message(
-      'Superhero of the day',
+      'Superhero of the day:',
       name: 'homePageTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `Search`
+  /// `Search by name or race`
   String get searchLabel {
     return Intl.message(
-      'Search',
+      'Search by name or race',
       name: 'searchLabel',
       desc: '',
       args: [],
@@ -145,6 +157,76 @@ class S {
     return Intl.message(
       'No results',
       name: 'searchNoResults',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Generate Superhero`
+  String get generateButton {
+    return Intl.message(
+      'Generate Superhero',
+      name: 'generateButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Try again`
+  String get tryAgainButton {
+    return Intl.message(
+      'Try again',
+      name: 'tryAgainButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name: `
+  String get nameLabel {
+    return Intl.message(
+      'Name: ',
+      name: 'nameLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Gender: `
+  String get genderLabel {
+    return Intl.message(
+      'Gender: ',
+      name: 'genderLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Race: `
+  String get raceLabel {
+    return Intl.message(
+      'Race: ',
+      name: 'raceLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Height: `
+  String get heightLabel {
+    return Intl.message(
+      'Height: ',
+      name: 'heightLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Weight: `
+  String get weightLabel {
+    return Intl.message(
+      'Weight: ',
+      name: 'weightLabel',
       desc: '',
       args: [],
     );

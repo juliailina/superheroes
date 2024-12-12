@@ -24,17 +24,27 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "appTitle": MessageLookupByLibrary.simpleMessage("Superheroes"),
         "errorWidgetDescription": MessageLookupByLibrary.simpleMessage(
-            "Please check your internet connection and try again."),
+            "Please check your internet connection and try again.",),
         "errorWidgetTitle":
             MessageLookupByLibrary.simpleMessage("Something went wrong."),
+        "genderLabel": MessageLookupByLibrary.simpleMessage("Gender: "),
+        "generateButton":
+            MessageLookupByLibrary.simpleMessage("Generate Superhero"),
         "generatorLabel": MessageLookupByLibrary.simpleMessage("Generator"),
+        "heightLabel": MessageLookupByLibrary.simpleMessage("Height: "),
         "homeLabel": MessageLookupByLibrary.simpleMessage("Home"),
         "homePageTitle":
-            MessageLookupByLibrary.simpleMessage("Superhero of the day"),
-        "searchLabel": MessageLookupByLibrary.simpleMessage("Search"),
+            MessageLookupByLibrary.simpleMessage("Superhero of the day:"),
+        "nameLabel": MessageLookupByLibrary.simpleMessage("Name: "),
+        "raceLabel": MessageLookupByLibrary.simpleMessage("Race: "),
+        "searchLabel":
+            MessageLookupByLibrary.simpleMessage("Search by name or race"),
         "searchNoResults": MessageLookupByLibrary.simpleMessage("No results"),
+        "superhero": MessageLookupByLibrary.simpleMessage("Superhero"),
         "superheroesLabel": MessageLookupByLibrary.simpleMessage("Superheroes"),
+        "tryAgainButton": MessageLookupByLibrary.simpleMessage("Try again"),
+        "weightLabel": MessageLookupByLibrary.simpleMessage("Weight: "),
         "welcomeMessage":
-            MessageLookupByLibrary.simpleMessage("Welcome to Superheroes app!")
+            MessageLookupByLibrary.simpleMessage("Welcome to Superheroes app!"),
       };
 }

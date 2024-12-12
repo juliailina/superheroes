@@ -5,6 +5,11 @@ import 'package:superheroes/core/commons/ui/styles/export_styles.dart';
 import 'package:superheroes/core/commons/ui/widgets/custom_error_widget.dart';
 import 'package:superheroes/features/superheroes/export_superheroes.dart';
 
+class _Constants {
+  static const int crossAxisCount = 2;
+  static const double aspectRatio = 1 / 1.5;
+}
+
 class SuperheroesPage extends StatefulWidget {
   const SuperheroesPage({super.key});
 
@@ -77,13 +82,22 @@ class _SuperheroesPageState extends State<SuperheroesPage> {
             },
           ),
           Expanded(
-            child: ListView.builder(
-              itemCount: _searchedSuperheroes.length,
-              itemBuilder: (context, index) => SuperheroCard(
-                key: ValueKey(_searchedSuperheroes[index].id),
-                superhero: _searchedSuperheroes[index],
-              ),
-            ),
+            child: _searchedSuperheroes.isNotEmpty
+                ? GridView.builder(
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: _Constants.crossAxisCount,
+                      crossAxisSpacing: Spaces.spaceS,
+                      mainAxisSpacing: Spaces.spaceS,
+                      childAspectRatio: _Constants.aspectRatio,
+                    ),
+                    itemCount: _searchedSuperheroes.length,
+                    itemBuilder: (context, index) => SuperheroCard(
+                      key: ValueKey(_searchedSuperheroes[index].id),
+                      superhero: _searchedSuperheroes[index],
+                    ),
+                  )
+                : const CustomErrorWidget(),
           ),
         ],
       ),
