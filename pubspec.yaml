@@ -17,19 +17,12 @@ dependencies:
   go_router: ^14.6.2
   # Assets / UI
   cached_network_image: ^3.4.1
-  flutter_svg: ^2.0.12
   material_symbols_icons: ^4.2789.0
   lottie: ^3.2.0
-  flutter_emoji: ^2.5.1
-  flutter_animate: ^4.5.2
   vector_graphics: any
-  flutter_launcher_icons: ^0.14.2
   google_fonts: ^6.2.1
-  # URLs
+  # HTTP
   http: ^1.2.2
-  url_launcher: ^6.3.1
-  # Overlay
-  loader_overlay: ^4.0.3
   # Translation
   flutter_localizations:
     sdk: flutter
@@ -37,10 +30,13 @@ dependencies:
   intl_utils: ^2.8.7
   # Env keys
   flutter_dotenv: ^5.2.1
+  
 
 dev_dependencies:
+  # Tests
   flutter_test:
     sdk: flutter
+  mockito: ^5.1.0
   flutter_lints: ^2.0.0
 
   build_runner: ^2.4.8
@@ -48,11 +44,8 @@ dev_dependencies:
 
 flutter_gen:
   output: lib/core/commons/ui/assets/
-
   integrations:
     flutter_svg: true
-    # flare_flutter: true
-    # rive: true
     lottie: true
 
 flutter:
