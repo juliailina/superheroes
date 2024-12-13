@@ -63,30 +63,34 @@ class _GeneratorPageState extends State<GeneratorPage> {
           ),
         );
       case ScreenState.idle:
-        return ValueListenableBuilder<GeneratorResponse?>(
-          valueListenable: _generatorBloc.generatorResponseNotifier,
-          builder: (context, generatorResponse, child) {
-            if (generatorResponse != null) {
-              final superhero = generatorResponse.superhero;
-              final image = generatorResponse.image;
-              return _buildSuperhero(superhero, image);
-            } else {
-              return const SizedBox.shrink();
-            }
-          },
+        return SingleChildScrollView(
+          child: ValueListenableBuilder<GeneratorResponse?>(
+            valueListenable: _generatorBloc.generatorResponseNotifier,
+            builder: (context, generatorResponse, child) {
+              if (generatorResponse != null) {
+                final superhero = generatorResponse.superhero;
+                final image = generatorResponse.image;
+                return _buildSuperhero(superhero, image);
+              } else {
+                return const SizedBox.shrink();
+              }
+            },
+          ),
         );
       case ScreenState.error:
-        return Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const CustomErrorWidget(),
-            ElevatedButton(
-              onPressed: () {
-                _generatorBloc.generateSuperhero();
-              },
-              child: Text(S.of(context).tryAgainButton),
-            ),
-          ],
+        return SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const CustomErrorWidget(),
+              ElevatedButton(
+                onPressed: () {
+                  _generatorBloc.generateSuperhero();
+                },
+                child: Text(S.of(context).tryAgainButton),
+              ),
+            ],
+          ),
         );
       case ScreenState.empty:
         return Center(child: _buildButton(S.of(context).generateButton));
@@ -94,34 +98,32 @@ class _GeneratorPageState extends State<GeneratorPage> {
   }
 
   Widget _buildSuperhero(AISuperhero superhero, AIImage image) {
-    return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.all(Spaces.spaceS),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                if (image.imageUrl != null) _buildImage(image),
-                Spaces.verticalS(),
-                if (superhero.name != null)
-                  Text(
-                    '${superhero.name}',
-                    style: Theme.of(context).textTheme.headlineSmall,
-                  ),
-                Spaces.verticalS(),
-                if (superhero.biography != null) Text('${superhero.biography}'),
-                Spaces.verticalS(),
-                if (superhero.appearance != null) _buildInfo(superhero),
-                Spaces.verticalS(),
-                if (superhero.powerstats != null) _buildStats(superhero),
-              ],
-            ),
-            Spaces.verticalM(),
-            _buildButton(S.of(context).generateButton),
-          ],
-        ),
+    return Padding(
+      padding: const EdgeInsets.all(Spaces.spaceS),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              if (image.imageUrl != null) _buildImage(image),
+              Spaces.verticalS(),
+              if (superhero.name != null)
+                Text(
+                  '${superhero.name}',
+                  style: Theme.of(context).textTheme.headlineSmall,
+                ),
+              Spaces.verticalS(),
+              if (superhero.biography != null) Text('${superhero.biography}'),
+              Spaces.verticalS(),
+              if (superhero.appearance != null) _buildInfo(superhero),
+              Spaces.verticalS(),
+              if (superhero.powerstats != null) _buildStats(superhero),
+            ],
+          ),
+          Spaces.verticalM(),
+          _buildButton(S.of(context).generateButton),
+        ],
       ),
     );
   }
