@@ -45,7 +45,8 @@ class _SplashPageState extends State<SplashPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Assets.lottie.superhero.lottie(
-              fit: BoxFit.contain,
+              width: double.infinity,
+              fit: BoxFit.fitWidth,
             ),
           ],
         ),
